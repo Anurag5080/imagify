@@ -8,7 +8,7 @@ const Result = () => {
   const [loading, setLoading] = useState(false)
   const [input, setInput] = useState('')
 
-  const onSubmitHandler = async (e)=> {
+  const onSubmitHandler = async (e) => {
 
   }
 
