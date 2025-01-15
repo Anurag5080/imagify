@@ -8,7 +8,6 @@ const Login = () => {
   const { setShowLogin } = useContext(AppContext)
 
   useEffect(()=>{
-    
     document.body.style.overflow = 'hidden';
 
     return ()=>{
