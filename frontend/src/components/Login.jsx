@@ -5,7 +5,6 @@ import { AppContext } from '../context/AppContext'
 const Login = () => {
 
   const [ state, setState] = useState('Login')
-  
   const { setShowLogin } = useContext(AppContext)
 
   useEffect(()=>{
