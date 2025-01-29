@@ -1,7 +1,6 @@
 import React, { useContext } from 'react'
 import Home from './pages/Home'
 import Result from './pages/Result'
-
 import Navbar from './components/Navbar'
 
 import { Routes, Route } from 'react-router-dom'
