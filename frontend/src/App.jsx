@@ -3,6 +3,7 @@ import Home from './pages/Home'
 import Result from './pages/Result'
 import Navbar from './components/Navbar'
 import { Routes, Route } from 'react-router-dom'
+
 import BuyCredits from './pages/Buycredits'
 import Footer from './components/Footer'
 import Login from './components/Login'
