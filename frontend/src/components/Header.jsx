@@ -2,7 +2,6 @@ import React from 'react'
 import { assets } from '../assets/assets'
 
 
-
 const Header = () => {
     return (
         <div className='flex flex-col justify-center items-center text-center my-20'>
