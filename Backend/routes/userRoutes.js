@@ -1,4 +1,4 @@
-import express from 'express'
+import express from 'express';
 import {registerUser, loginUser, userCredits} from '../controllers/userController.js'
 import userAuth from '../middleware/auth.js'
 
