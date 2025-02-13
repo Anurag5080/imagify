@@ -5,7 +5,7 @@ import { AppContext } from '../context/AppContext'
 
 const Navbar = () => {
 
-    const { user, setShowLogin } = useContext(AppContext)
+    const { user, setShowLogin, logout, credit } = useContext(AppContext)
 
     const navigate = useNavigate()
 
@@ -21,14 +21,14 @@ const Navbar = () => {
                     <div className='flex items-center gap-2 sm:gap-3'>
                         <button onClick={()=>navigate('/buy')} className='flex items-center bg-blue-100 px-4 sm:px-6 py-1.5 sm:py-3 rounded-full gap-2 hover:scale-105 transition-all duration-500'>
                             <img className='w-5 cursor-pointer' src={assets.credit_star} alt=''/>
-                            <p className='text-xs sm:text-sm font-medium text-gray-600'>Credits left : 50</p>
+                            <p className='text-xs sm:text-sm font-medium text-gray-600'>Credits left : {credit} </p>
                         </button>
-                        <p className='text-gray-600 max-sm:hidden pl-4'>Hi! Richard</p>
+                        <p className='text-gray-600 max-sm:hidden pl-4'>Hi! {user.name}</p>
                         <div className='relative group cursor-pointer'>
                             <img className='w-10 drop-shadow' src={assets.profile_icon} alt=''/>
                             <div className='absolute hidden group-hover:block top-0 right-0 pt-12 z-10 text-black rounded'>
                                 <ul className='list-none m-0 p-2 bg-white rounded-md border text-sm'>
-                                    <li className='py-1 px-2 cursor-pointer pr-10'>
+                                    <li onClick={logout} className='py-1 px-2 cursor-pointer pr-10'>
                                         Logout
                                     </li>
                                 </ul>

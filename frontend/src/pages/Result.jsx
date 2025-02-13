@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { assets } from '../assets/assets'
+import { AppContext } from '../context/AppContext'
 
 const Result = () => {
 
@@ -8,9 +9,22 @@ const Result = () => {
   const [loading, setLoading] = useState(false)
   const [input, setInput] = useState('')
 
-  const onSubmitHandler = async (e) => {
+  const {generateImage} = useContext(AppContext)
 
-  }
+  const onSubmitHandler = async (e) =>{
+      e.preventDefault()
+      setLoading(true)
+
+      if(input){
+        const image = await generateImage(input)
+        if(image){
+          setIsimageloaded(true)
+          setImage(image)
+        }
+      }
+      setLoading(false)
+    }
+    console.log(generateImage(input))
 
   return (
     <form onSubmit={onSubmitHandler} className='flex flex-col min-h-[90vh] justify-center items-center'>
@@ -18,7 +32,7 @@ const Result = () => {
       <div>
         <div className='relative'>
           <img src={image} alt='' className='max-w-sm rounded' />
-          <span className={`absolute bottom-0 left-0 h-1 bg-blue-500 {loading ? 'w-full transition-all duration-[10s]' : 'w-0'} `}/>
+          <span className={`absolute bottom-0 left-0 h-1 bg-blue-500 ${loading ? 'w-full transition-all duration-[10s]' : 'w-0'} `}/>
         </div>
         <p className={!loading ? 'hidden' : ''}>Loading...</p>
       </div>
