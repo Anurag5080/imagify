@@ -29,7 +29,8 @@ const Login = () => {
               setUser(data.user);
               localStorage.setItem('token', data.token);
               setShowLogin(false);
-              navigate('/result');
+              const lastPage = localStorage.getItem('lastPage') || '/';
+              navigate(lastPage);
             }else{
               toast.error(data.message)
             }
@@ -62,7 +63,7 @@ const Login = () => {
     <div className='absolute top-0 left-0 right-0 bottom-0 z-10 backdrop-blur-sm bg-black/30 flex justify-center items-center'>
         <form onSubmit={onSubmitHandler} className='relative bg-white p-10 rounded-xl text-slate-500'>
             <h1 className='text-center text-2xl text-neutral-700 font-medium'>{state}</h1>
-            <p className='text-sm mt-2'>Welcome back! Please sign in to continue</p>
+            <p className='text-sm mt-2'>Welcome ! Please fill the details to continue</p>
 
             {state !== 'Login' && <div className='border px-6 py-2 flex items-center gap-2 rounded-full mt-5'>
                 <img className='w-7' src={assets.profile_icon} alt=''/>

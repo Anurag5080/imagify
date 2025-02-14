@@ -24,7 +24,7 @@ const Result = () => {
       }
       setLoading(false)
     }
-    console.log(generateImage(input))
+    // console.log(generateImage(input))
 
   return (
     <form onSubmit={onSubmitHandler} className='flex flex-col min-h-[90vh] justify-center items-center'>
