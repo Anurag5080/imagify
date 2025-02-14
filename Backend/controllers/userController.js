@@ -82,6 +82,7 @@ const razorpayInstance = new razorpay({
 });
 
 const paymentRazorpay = async(req, res)=>{
+    // console.log("🚀 Payment request received:", req.body);
     try {
         
         const {userId, planId} = req.body
@@ -120,7 +121,7 @@ const paymentRazorpay = async(req, res)=>{
         date = Date.now();
 
         const transactionData = {
-            userId, plan, amount, credits, date
+            userId, plan, amount, credits, date, payment: false,
         }
 
         const newTransaction = await transactionModel.create(transactionData);
@@ -162,7 +163,7 @@ const verifyRazorpay = async (req, res)=>{
             const creditBalance = userData.creditBalance + transactionData.credits;
             await userModel.findByIdAndUpdate(userData._id, {creditBalance})
 
-            await transactionModel.findByIdAndUpdate(transactionData,_id, {payment: true})
+            await transactionModel.findByIdAndUpdate(transactionData._id, {payment: true})
 
             res.json({ success: true, message: "Credits Added" })
         }else{

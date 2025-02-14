@@ -7,7 +7,13 @@ const Navbar = () => {
 
     const { user, setShowLogin, logout, credit } = useContext(AppContext)
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+
+
+    const handleLogout = () => {
+        logout();
+        navigate('/');
+    };
 
     return (
         <div className='flex items-center justify-between py-4'>
@@ -28,7 +34,7 @@ const Navbar = () => {
                             <img className='w-10 drop-shadow' src={assets.profile_icon} alt=''/>
                             <div className='absolute hidden group-hover:block top-0 right-0 pt-12 z-10 text-black rounded'>
                                 <ul className='list-none m-0 p-2 bg-white rounded-md border text-sm'>
-                                    <li onClick={logout} className='py-1 px-2 cursor-pointer pr-10'>
+                                    <li onClick={handleLogout} className='py-1 px-2 cursor-pointer pr-10'>
                                         Logout
                                     </li>
                                 </ul>
