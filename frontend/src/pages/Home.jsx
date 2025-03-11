@@ -6,6 +6,7 @@ import Testimonials from '../components/Testimonials'
 import Generatorbtn from '../components/Generatorbtn'
 
 
+
 const Home = () => {
   return (
     <div>
