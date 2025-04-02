@@ -5,6 +5,7 @@ import razorpay from 'razorpay';
 import transactionModel from '../models/transactionModel.js'
 
 
+
 const registerUser = async (req, res)=>{
     try {
         const {name, email, password} = req.body;
